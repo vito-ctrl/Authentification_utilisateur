@@ -1,3 +1,5 @@
+import image from './assets/icons8-github-logo-48.png'
+
 function Login(){
     return(
         <div className="font-[sans-serif]">
@@ -9,7 +11,6 @@ function Login(){
             <h3 className="text-gray-100 text-3xl font-extrabold mb-8">
               Sign in
             </h3>
-
             <div className="space-y-4">
               <div>
                 <input name="email" type="email" autocomplete="email" required className="bg-gray-900 w-full text-sm text-gray-100 px-4 py-3.5 rounded-md focus:bg-transparent" placeholder="Email address" />
@@ -17,22 +18,14 @@ function Login(){
               <div>
                 <input name="password" type="password" autocomplete="current-password" required className="bg-gray-900 w-full text-sm text-gray-100 px-4 py-3.5 rounded-md focus:bg-transparent" placeholder="Password" />
               </div>
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center">
-                  <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
-                  <label for="remember-me" className="ml-3 block text-sm text-gray-400">
-                    Remember me
-                  </label>
-                </div>
-                <div className="text-sm">
-                  <a href="jajvascript:void(0);" className="text-blue-600 hover:text-blue-500 font-semibold">
-                    Forgot your password?
-                  </a>
-                </div>
-              </div>
             </div>
 
             <div className="!mt-8">
+              <button type="button" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                sign up
+              </button>
+            </div>
+            <div className="!mt-4">
               <button type="button" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
                 Log in
               </button>
@@ -40,7 +33,7 @@ function Login(){
 
             <div className="my-4 flex items-center gap-4">
               <hr className="w-full border-gray-300" />
-              <p className="text-sm text-gray-800 text-center">or</p>
+              <p className="text-sm text-gray-400 text-center">or</p>
               <hr className="w-full border-gray-300" />
             </div>
 
@@ -64,10 +57,8 @@ function Login(){
                 </svg>
               </button>
               <button type="button"
-                className="border-none outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32px" viewBox="0 0 22.773 22.773">
-                  <path d="M15.769 0h.162c.13 1.606-.483 2.806-1.228 3.675-.731.863-1.732 1.7-3.351 1.573-.108-1.583.506-2.694 1.25-3.561C13.292.879 14.557.16 15.769 0zm4.901 16.716v.045c-.455 1.378-1.104 2.559-1.896 3.655-.723.995-1.609 2.334-3.191 2.334-1.367 0-2.275-.879-3.676-.903-1.482-.024-2.297.735-3.652.926h-.462c-.995-.144-1.798-.932-2.383-1.642-1.725-2.098-3.058-4.808-3.306-8.276v-1.019c.105-2.482 1.311-4.5 2.914-5.478.846-.52 2.009-.963 3.304-.765.555.086 1.122.276 1.619.464.471.181 1.06.502 1.618.485.378-.011.754-.208 1.135-.347 1.116-.403 2.21-.865 3.652-.648 1.733.262 2.963 1.032 3.723 2.22-1.466.933-2.625 2.339-2.427 4.74.176 2.181 1.444 3.457 3.028 4.209z" data-original="#000000"></path>
-                </svg>
+                className="border-none outline-none w-10">
+                <img src={image} alt="" />
               </button>
             </div>
           </form>
