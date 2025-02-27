@@ -1,15 +1,19 @@
+import React from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
-import Login from './login'
-import Sighup from './Sighup'
+import Register from './Auth/Register';
+import Login from './Auth/login';
+import Dashboard from './pages/Dashboard';
 
-function App() {
+const App = () => {
 
-  return (
-    <>
-      <Login/>
-      <Sighup/>
-    </>
-  )
+  return <Router>
+    <Routes>
+      <Route path='/' element = {<Register/>} />
+      <Route path='/login' element = {<Login/>} />
+      <Route path='/dashboard' element = {<Dashboard/>} />
+    </Routes>
+  </Router>
 }
 
 export default App

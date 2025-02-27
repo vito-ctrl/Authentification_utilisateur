@@ -1,4 +1,4 @@
-import image from './assets/icons8-github-logo-48.png'
+import image from '../assets/icons8-github-logo-48.png'
 
 function Login(){
     return(
@@ -13,7 +13,7 @@ function Login(){
             </h3>
             <div className="space-y-4">
               <div>
-                <input name="email" type="email" autocomplete="email" required className="bg-gray-900 w-full text-sm text-gray-100 px-4 py-3.5 rounded-md focus:bg-transparent" placeholder="Email address" />
+                <input name="email" type="email" autocomplete="email" className="bg-gray-900 w-full text-sm text-gray-100 px-4 py-3.5 rounded-md focus:bg-transparent" placeholder="Email address"  required/>
               </div>
               <div>
                 <input name="password" type="password" autocomplete="current-password" required className="bg-gray-900 w-full text-sm text-gray-100 px-4 py-3.5 rounded-md focus:bg-transparent" placeholder="Password" />
