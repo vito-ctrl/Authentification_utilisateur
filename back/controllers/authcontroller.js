@@ -2,7 +2,7 @@ const User = require('../models/usermodels');
 const jwt = require('jsonwebtoken');
 const creatError = require('../utils/appError');
 const bcrypt = require('bcryptjs');
-const { use } = require('react');
+// const { use } = require('react');
 
 exports.signup = async(req, res, next) => {
 
@@ -40,7 +40,8 @@ exports.login = async (req, res, next) => {
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if(!isPasswordValid){
-            return next(new creatError("ivalide email or password", 401));
+            return next(new creatError("ivalide password", 400
+            ));
         }
 
         const token = jwt.sign({_id: user._id}, 'scretkey123',{

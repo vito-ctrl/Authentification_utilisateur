@@ -1,34 +1,71 @@
 import image from '../assets/icons8-github-logo-48.png'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function Login(){
+const Login = () => {
+
+    const [Formdata, setFormdata] = useState({});
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+      setFormdata({
+        ...Formdata,
+        [e.target.name]: e.target.value
+      });
+    };
+
+    const Handelsubmit = async(e) => {
+      e.preventDefault();
+      try{
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: {
+            "Content-Type" : "application/json",
+          },
+          body: JSON.stringify(Formdata),
+        });
+        const data = await res.json();
+        console.log(data);
+        if (res.ok) {
+          navigate ('/dashboard')
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }    
+
+    console.log(Formdata)
     return(
         <div className="font-[sans-serif]">
       <div className="min-h-screen flex fle-col items-center justify-center py-6 px-4" id="login">
         <div className="grid md:grid-cols-2 items-center gap-10 max-w-6xl max-md:max-w-md w-full">
           
 
-          <form className="max-w-md md:ml-auto w-full">
+          <form className="max-w-md md:ml-auto w-full" onSubmit={Handelsubmit}>
             <h3 className="text-gray-100 text-3xl font-extrabold mb-8">
               Sign in
             </h3>
             <div className="space-y-4">
               <div>
-                <input name="email" type="email" autocomplete="email" className="bg-gray-900 w-full text-sm text-gray-100 px-4 py-3.5 rounded-md focus:bg-transparent" placeholder="Email address"  required/>
+                <input name="email" type="email" autoComplete="email" className="bg-gray-900 w-full text-sm text-gray-100 px-4 py-3.5 rounded-md focus:bg-transparent" placeholder="Email address" onChange={handleChange} required/>
               </div>
               <div>
-                <input name="password" type="password" autocomplete="current-password" required className="bg-gray-900 w-full text-sm text-gray-100 px-4 py-3.5 rounded-md focus:bg-transparent" placeholder="Password" />
+                <input name="password" type="password" autoComplete="current-password" required className="bg-gray-900 w-full text-sm text-gray-100 px-4 py-3.5 rounded-md focus:bg-transparent" onChange={handleChange} placeholder="Password" />
               </div>
             </div>
 
             <div className="!mt-8">
-              <button type="button" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+              <button type="Submit" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
                 sign up
               </button>
             </div>
             <div className="!mt-4">
-              <button type="button" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
-                Log in
-              </button>
+              <Link to = "/">
+                <button type="button" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                  Create An Account
+                </button>
+              </Link>
             </div>
 
             <div className="my-4 flex items-center gap-4">
